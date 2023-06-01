@@ -6,11 +6,11 @@ export class Newsitem extends Component {
     return (
       <div className='m-4 my-3 d-flex'>
         <div className="card">
-          <img src={imageUrl?imageUrl:"https://www.hindustantimes.com/ht-img/img/2023/05/28/1600x900/Prime-Minister-Narendra-Modi--File-Photo-_1685100967303_1685232074082.jpg"} className="card-img-top" alt="..." />
+          <img src={imageUrl?imageUrl:"https://www.feednavigator.com/var/wrbm_gb_food_pharma/storage/images/9/2/8/5/235829-6-eng-GB/Feed-Test-SIC-Feed-20142.jpg"} className="card-img-top" alt="..." />
           <div className="card-body d-flex flex-column justify-content-between align-items-center p-3">
             <div>
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{description}</p>
+            <h5 className="card-title">{title?title:'No Title'}</h5>
+            <p className="card-text">{description?description:"No Description Available"}</p>
             </div>
             <div>
             <a href={newsUrl} target='_blank' rel="noreferrer" className="btn btn-sm btn-primary">Read More</a>
