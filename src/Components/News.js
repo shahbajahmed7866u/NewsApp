@@ -11,7 +11,6 @@ const [articles, setArticles] = useState([])
 const [loading, setLoading] = useState(true)
 const [page, setPage] = useState(1)
 const [totalResult, setTotalResult] = useState(0)
-// document.title = `${ capitalizeFirstLetter(props.category)} - NewsPedia`;
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
@@ -34,20 +33,9 @@ const [totalResult, setTotalResult] = useState(0)
 
     useEffect(() => {
       updateNews();
+      document.title = `${ capitalizeFirstLetter(props.category)} - NewsPedia`;
     }, [])
     
-
-    const handlePrevClick = async () => {
-      setPage(page-1)
-         updateNews();
-    }
-
-    const handleNextClick = async () => {
-      setPage(page+1)
-      
-         updateNews()
-    }
-
     const fetchMoreData = async () => {  
       const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apikey}&page=${page+1}&pageSize=${props.pageSize}`;
       setPage(page+1)
@@ -59,7 +47,7 @@ const [totalResult, setTotalResult] = useState(0)
 
         return (
             <div className="container my-3">
-                <h1 className="text-center">NewsPedia - Top { capitalizeFirstLetter(props.category)} Headlines</h1>
+                <h1 className="text-center" style={{marginTop:'90px'}}>NewsPedia - Top { capitalizeFirstLetter(props.category)} Headlines</h1>
                 { loading && <Spinner />}
                 <InfiniteScroll
                     dataLength={articles.length}
